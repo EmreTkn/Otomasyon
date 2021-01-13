@@ -1,0 +1,150 @@
+﻿@model List<nkuotomasyon.entity.Lesson>
+
+@section Css
+{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
+}
+@section Scripts
+{
+    @*<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#myTable').DataTable();
+            });</script>*@
+
+}
+@*Need the performance arrangement. Up there code blocks don't take one by one.Take all of them after doing pages. for performance need the sql query for pages*@
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="h3">Syllabus</h1>
+        <hr />
+        <table id="myTable" class="table table-bordered mt-3 col-md-12">
+            <thead>
+                <tr>
+                    <td></td>
+                    <th>1.Ders</th>
+                    <th>2.Ders</th>
+                    <th>3.Ders</th>
+                    <th>4.Ders</th>
+                    <th>5.Ders</th>
+                    <th>6.Ders</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Pazartesi</th>
+                @foreach (var item in Model)
+                {
+
+                    @if (item.LessonDay == "Pazartesi")
+                    {
+                        @for (int i = 1; i < item.LessonStartHour; i++)
+                        {
+                            <td>BOŞ</td>
+                        }
+                        @for (int i = 0; i < item.LessonofNumber; i++)
+                        {
+                            <td>@item.LessonName</td>
+                        }
+
+                        @for (int k = item.LessonStartHour + item.LessonofNumber; k < 7; k++)
+                        {
+                            <td>BOŞ</td>
+                        }
+                    }
+                }
+
+            </tr>
+            <tr>
+                <th>Salı</th>
+
+                @foreach (var item in Model)
+                {
+                    @if (item.LessonDay == "Salı")
+                    {
+                        @for (int i = 1; i < item.LessonStartHour; i++)
+                        {
+                            <td>BOŞ</td>
+                        }
+                        @for (int i = 0; i < item.LessonofNumber; i++)
+                        {
+                            <td>@item.LessonName</td>
+                        }
+                        @for (int k = item.LessonStartHour + item.LessonofNumber; k < 7; k++)
+                        {
+                            <td>BOŞ</td>
+                        }
+                    }
+                }
+
+            </tr>
+            <tr>
+                <th>Çarşamba</th>
+                @foreach (var item in Model)
+                {
+                    @if (item.LessonDay == "Çarşamba")
+                    {
+                        @for (int i = 1; i < item.LessonStartHour; i++)
+                        {
+                            <td>BOŞ</td>
+                        }
+                        @for (int i = 0; i < item.LessonofNumber; i++)
+                        {
+                            <td>@item.LessonName</td>
+                        }
+                        @for (int k = item.LessonStartHour + item.LessonofNumber; k < 7; k++)
+                        {
+                            <td>BOŞ</td>
+                        }
+                    }
+                }
+
+            </tr>
+            <tr>
+                <th>Perşembe</th>
+                @foreach (var item in Model)
+                {
+                    @if (item.LessonDay == "Perşembe")
+                    {
+                        @for (int i = 1; i < item.LessonStartHour; i++)
+                        {
+                            <td>BOŞ</td>
+                        }
+                        @for (int i = 0; i < item.LessonofNumber; i++)
+                        {
+                            <td>@item.LessonName</td>
+                        }
+                        @for (int k = item.LessonStartHour + item.LessonofNumber; k < 7; k++)
+                        {
+                            <td>BOŞ</td>
+                        }
+                    }
+                }
+            </tr>
+            <tr>
+                <th>Cuma</th>
+                @foreach (var item in Model)
+                {
+                    @if (item.LessonDay == "Cuma")
+                    {
+                        @for (int i = 1; i < item.LessonStartHour; i++)
+                        {
+                            <td>BOŞ</td>
+                        }
+                        @for (int i = 0; i < item.LessonofNumber; i++)
+                        {
+                            <td>@item.LessonName</td>
+                        }
+                        @for (int k = item.LessonStartHour + item.LessonofNumber; k < 7; k++)
+                        {
+                            <td>BOŞ</td>
+                        }
+                    }
+                }
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

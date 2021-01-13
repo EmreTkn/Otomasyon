@@ -1,0 +1,66 @@
+﻿@model IEnumerable<User>
+
+@section Css
+{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
+}
+@section Scripts
+{
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+
+}
+@*Need the performance arrangement. Up there code blocks don't take one by one.Take all of them after doing pages. for performance need the sql query for pages*@
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="h3">User List</h1>
+        <hr>
+        <a class="btn btn-primary btn-sm" asp-controller="Account" asp-action="Register">Create User</a>
+        <hr/>
+        <table id="myTable" class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <td>Student Number</td>
+                    <td>T.C. Number</td>
+                    <td>Email</td>
+                    <td>Email Confirmed</td>
+                    <td style="width: 160px;"></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr class="@(item.EmailConfirmed?"":"bg-warning")">
+                            <td>@item.UserName</td>
+                            <td>@item.TcNumber</td>
+                            <td>@item.Email</td>
+                            <td>@item.EmailConfirmed</td>
+                            <td>
+                                <a href="/admin/user/@item.Id" class="btn btn-primary btn-sm mr-2">Edit</a>
+
+                                <form action="/admin/role/delete" method="POST" style="display: inline;">
+                                    <input type="hidden" name="UserId" value="@item.Id">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>No Users</h3>
+                    </div>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

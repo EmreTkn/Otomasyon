@@ -1,0 +1,12 @@
+﻿@model System.Collections.Generic.List<nkuotomasyon.entity.Lesson>
+
+<div class="row">
+    <div class="col-md-12">
+        
+            @foreach (var item in Model)
+            {
+                <a asp-controller="Teacher" asp-action="StudentListByLesson" asp-route-lessonCode="@item.LessonCode" type="button" style="color: azure" class="btn btn-secondary">@item.LessonName</a>
+            }
+       
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿<div class="list-group-horizontal">
+    <div class="container mb-3">
+        <div class="row">
+            <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="BİLDİRİMLER" class="fas fa-bell ml-3 mr-3" style="font-size: 48px"></a>
+            <a class="far fa-comments mr-3 ml-3" style="font-size: 48px"></a>
+        </div>
+    </div>
+   
+    <div class="btn-group-vertical ">
+        @if (User.IsInRole("öğrenci"))
+        {
+            <a asp-controller="Home" asp-action="GetLessonsByStudent" type="button" style="color: azure" class="btn btn-secondary">Aldığım Dersler</a>
+            <a asp-controller="Home" asp-action="Grades" style="color: azure" type="button" class="btn btn-secondary">Yarıyıl Notlarım</a>
+            <a asp-controller="Home" asp-action="ExamDate" style="color: azure" type="button" class="btn btn-secondary">Sınav Programım</a>
+            <a asp-controller="Lesson" asp-action="AddAndDeleteLessonToStudent" style="color: azure" type="button" class="btn btn-secondary">Ders Ekle/Çıkar</a>
+            <a asp-controller="Home" asp-action="Syllabus" style="color: azure" type="button" class="btn btn-secondary">Ders Programım</a>
+
+
+
+
+
+
+        }
+        @if (User.IsInRole("teacher"))
+        {
+            <a asp-controller="Teacher" asp-action="TeacherLessonList" style="color: azure" type="button" class="btn btn-secondary">Teacher Lesson</a>
+            <a asp-controller="Home" asp-action="Syllabus" style="color: azure" type="button" class="btn btn-secondary">Ders Programım</a>
+
+        }
+
+
+
+
+
+
+
+        @if (User.IsInRole("admin"))
+        {
+            <a asp-controller="Account" asp-action="Register" type="button" style="color: azure" class="btn btn-secondary">Öğrenci Ekle</a>
+            <a asp-controller="Admin" asp-action="RoleList" style="color: azure" type="button" class="btn btn-secondary">Roller</a>
+            <a asp-controller="Admin" asp-action="StudentList" type="button" style="color: azure" class="btn btn-secondary">Öğrenciler</a>
+            <a asp-controller="Admin" asp-action="TeacherList" type="button" style="color: azure" class="btn btn-secondary">Öğretmenler</a>
+            <a asp-controller="Account" asp-action="RegisterTeacher" style="color: azure" type="button" class="btn btn-secondary">Add Teacher</a>
+            <a asp-controller="Admin" asp-action="UserEdit" style="color: azure" type="button" class="btn btn-secondary">Kullanıcı Düzenle</a>
+            <a asp-controller="Admin" asp-action="AddNewLesson" style="color: azure" type="button" class="btn btn-secondary">Yeni Ders Ekleme</a>
+            <a asp-controller="Admin" asp-action="CreateRole" style="color: azure" type="button" class="btn btn-secondary">createrole</a>
+            <a asp-controller="Admin" asp-action="RoleList" style="color: azure" type="button" class="btn btn-secondary">rolelist</a>
+            <a asp-controller="Admin" asp-action="UserList" style="color: azure" type="button" class="btn btn-secondary">userlist</a>
+            <a asp-controller="Admin" asp-action="LessonList" style="color: azure" type="button" class="btn btn-secondary">Lessons List</a>
+        }
+    </div>
+</div>
+
+

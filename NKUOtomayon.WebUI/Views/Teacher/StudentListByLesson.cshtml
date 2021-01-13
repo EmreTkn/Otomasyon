@@ -1,0 +1,68 @@
+﻿@model StudentListByLessonModel
+@section Css
+{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
+}
+@section Scripts
+{
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+
+}
+@*Need the performance arrangement. Up there code blocks don't take one by one.Take all of them after doing pages. for performance need the sql query for pages*@
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="h3">User List</h1>
+        <hr>
+        <a class="btn btn-primary btn-sm" asp-controller="Teacher" asp-action="AddPdfForLesson" asp-route-lessonCode="@Model.LessonCode">Add PDF to lesson</a>
+        <hr />
+        <table id="myTable" class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <td>Student Number</td>
+                    <td>T.C. Number</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Email</td>
+                    <td style="width: 160px;"></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Students.Any())
+                {
+                    @foreach (var item in Model.Students)
+                    {
+                <tr>
+                    <td>@item.SchoolNumber</td>
+                    <td>@item.TcNumber</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Email</td>
+                    <td>
+                        @*<a href="/admin/user/@item.Id" class="btn btn-primary btn-sm mr-2">Edit</a>*@
+
+                        <form asp-controller="Teacher" asp-action="EditStudentGrades" method="get" style="display: inline;">
+                            <input type="hidden" name="studentId" value="@item.Id">
+                            <input type="hidden" name="lessonCode" value="@Model.LessonCode"/>
+                            <button type="submit" class="btn btn-danger btn-sm">Edit</button>
+                        </form>
+                    </td>
+                </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>No Users</h3>
+                    </div>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+﻿@model System.Collections.Generic.List<nkuotomasyon.entity.Lesson>
+
+<div class="btn-group-vertical align-content-center">
+    @foreach (var item in Model)
+    {
+        <a style="color: azure" type="button" class="btn btn-secondary mb-3 mt-3 p-2"  asp-controller="Admin" asp-action="EditExamDate" asp-route-lessonCode="@item.LessonCode">@item.LessonName</a>
+    }
+</div>

@@ -1,0 +1,16 @@
+﻿@model System.Collections.Generic.List<nkuotomasyon.entity.PdfFile>
+
+<div class="row">
+    @if (Model != null)
+    {
+        <div class="col-md-8">
+            @foreach (var item in Model)
+            {
+                <div class="form-group row">
+                    <label>@item.Name</label>
+                    <a class="btn btn-primary btn-sm" href="@item.Url">Download</a>
+                </div>
+            }
+        </div>
+    }
+</div>

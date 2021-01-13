@@ -1,0 +1,123 @@
+﻿@using nkuotomasyon.entity
+
+@model LessonAddModel
+@{
+    var teachers = Model.Teachers;
+    var semesters = Model.Semesters;
+    var studyPrograms = Model.StudyPrograms;
+}
+
+<h1 class="h3">Create Role</h1>
+<hr>
+<div class="row">
+    <div class="col-md-8">
+        <form asp-controller="Admin" asp-action="AddNewLesson" method="POST">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group row">
+                <label asp-for="LessonName" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="LessonName">
+                    <span asp-validation-for="LessonName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Akts" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Akts">
+                    <span asp-validation-for="Akts" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="LessonDay" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="LessonDay">
+                    <span asp-validation-for="LessonDay" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="LessonStartHour" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="LessonStartHour">
+                    <span asp-validation-for="LessonStartHour" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="LessonofNumber" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="LessonofNumber">
+                    <span asp-validation-for="LessonofNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="ExamDate" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="ExamDate">
+                    <span asp-validation-for="ExamDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="LessonCode" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="LessonCode">
+                    <span asp-validation-for="LessonCode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="PracticeTime" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="PracticeTime">
+                    <span asp-validation-for="PracticeTime" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="TheoryTime" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="TheoryTime">
+                    <span asp-validation-for="TheoryTime" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Teacher"  class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <select asp-for="Teacher.Id" >
+                        @foreach (var item in teachers)
+                        {
+                            <option name="@item.Id"id="@item.Id"value="@item.Id">@item.FirstName</option>
+                        }
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Semester"  class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <select asp-for="Semester.Id" >
+                        @foreach (var item in semesters)
+                        {
+                            <option name="@item.Id"id="@item.Id"value="@item.Id">@item.SemesterName</option>
+                        }
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="StudyProgram"  class="col-sm-2 col-form-label mr-2"></label>
+                <div class="col-sm-10">
+                    <select asp-for="StudyProgram.Id" >
+                        @foreach (var item in studyPrograms)
+                        {
+                            <option name="@item.Id"id="@item.Id"value="@item.Id">@item.ProgramName</option>
+                        }
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </div>
+          
+        </form>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿@model System.Collections.Generic.List<nkuotomasyon.entity.Lesson>
+
+@section Css
+{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
+}
+@section Scripts
+{
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+
+}
+@*Need the performance arrangement. Up there code blocks don't take one by one.Take all of them after doing pages. for performance need the sql query for pages*@
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="h3">Exam Dates</h1>
+        <hr />
+        <table id="myTable" class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <td>Lesson Code</td>
+                    <td>Lesson Name</td>
+                    <td>Exam Date</td>
+                    <td>Exam Location</td>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td>@item.LessonCode</td>
+                    <td>@item.LessonName</td>
+                    <td>@item.ExamDate</td>@*need to update*@
+                    <td>Lesson exam location</td> @*to be added*@
+                </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>No Lesson</h3>
+                    </div>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

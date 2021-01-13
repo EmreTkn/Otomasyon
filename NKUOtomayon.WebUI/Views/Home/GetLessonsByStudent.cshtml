@@ -1,0 +1,86 @@
+﻿
+@model LessonListModel
+
+@section Css
+{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
+}
+@section Scripts
+{
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+
+}
+@*Need the performance arrangement. Up there code blocks don't take one by one.Take all of them after doing pages. for performance need the sql query for pages*@
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="h3">Lessons</h1>
+        <hr />
+        <table id="myTable" class="table table-bordered mt-3 col-md-12">
+            <thead>
+                <tr>
+                    <td>Code</td>
+                    <td>Lesson Name</td>
+                    <td>AKTS</td>
+                    <td>T</td>
+                    <td>U</td>
+                    <td>Teacher Name</td>
+                    @if (Model.Grades.Count > 0)
+                    {
+                        <td>Average</td>
+                        <td>Letter</td>
+                        <td>Absenteeism</td>
+                    }
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Lesson.Count > 0)
+                {
+                    @for (int i = 0; i < Model.Lesson.Count; i++)
+                    {
+                        <tr>
+
+
+                            <td>@Model.Lesson[i].LessonCode</td>
+                            <td><a asp-controller="Home" asp-action="PdfByLesson" asp-route-lessonCode="@Model.Lesson[i].LessonCode" style="color: blanchedalmond" type="button" class="btn btn-secondary">@Model.Lesson[i].LessonName</a></td>
+                            <td>@Model.Lesson[i].Akts</td>
+                            <td>@Model.Lesson[i].TheoryTime</td>
+                            <td>@Model.Lesson[i].PracticeTime</td>
+                            <td>@Model.Lesson[i].Teacher.FirstName @Model.Lesson[i].Teacher.LastName</td>
+
+                            @if (Model.Grades.Count > i)
+                            {
+                                <td>@Model.Grades[i].Average</td>
+                                <td>@Model.Grades[i].GradeLetter</td>
+                                <td>@Model.Grades[i].FailedAbsenteeism</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            }
+
+
+
+
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>No Users</h3>
+                    </div>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

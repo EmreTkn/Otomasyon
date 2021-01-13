@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "iCuW92Ldq+EQNO6Nh6Go29uJgeaCOtKLq16Qb+USkaZzf/E80d8lf2Z27WqoRCWTmNqbQh5/NGNAWFeIfgTJUg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\emret\\source\\repos\\NKUOtomayon\\nkuotomasyon.business\\nkuotomasyon.business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\emret\\.nuget\\packages\\cloudinarydotnet\\1.14.0\\cloudinarydotnet.1.14.0.nupkg.sha512",
+    "C:\\Users\\emret\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\emret\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\emret\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

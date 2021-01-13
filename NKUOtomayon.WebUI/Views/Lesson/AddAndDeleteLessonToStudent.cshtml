@@ -1,0 +1,228 @@
+﻿@using nkuotomasyon.entity
+@model AddDeleteLessonModel
+
+<div class="row">
+    <div class="col-md-6">
+        @foreach (var item in Model.SelectedLesson)
+        {
+            <form asp-controller="Lesson" asp-action="AddAndDeleteLessonToStudent" method="post">
+
+                <table class="table table-bordered table-sm">
+                    <tr>
+                        <td>@item.LessonName</td>
+
+                        @if (!Model.GradesFailedLessons.Any(a => a.LessonCode == item.LessonCode))
+                        {
+                            <td>
+                                <button class="btn-success btn-sm" type="submit">Delete</button>
+                                <input type="hidden" name="lessonDeleteCode" value="@item.LessonCode" />
+                            </td>
+                        }
+                        @if (Model.GradesFailedLessons.Any(a => a.LessonCode == item.LessonCode))
+                        {
+                            <td>Önceki Dönem Dersi</td>
+                        }
+                        </tr>
+                </table>
+            </form>
+        }
+    </div>
+    <hr />
+    <div class="col-md-6">
+        <form asp-controller="Lesson" asp-action="AddAndDeleteLessonToStudent" method="post">
+            @if (Model.Student.Semester.Id == 1)
+            {
+                <table class="table table-bordered table-sm">
+                    <th>
+                        1.Sınıf Güz Dönemi
+                    </th>
+                    <th></th>
+                    @foreach (var item in Model.NonSelectedLesson)
+                    {
+                        @if (item.Semester.Id == 1)
+                        {
+                            <tr>
+                                <td>@item.LessonName</td>
+                                <td>
+                                    <button class="btn-success btn-sm" type="submit">Ekle</button>
+                                    <input type="hidden" name="lessonAddCode" value="@item.LessonCode" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+            @if (Model.Student.Semester.Id == 2)
+            {
+                <table class="table table-bordered table-sm">
+                    <th>1.Sınıf Bahar Dönemi</th>
+                    <th></th>
+                    @foreach (var item in Model.NonSelectedLesson)
+                    {
+                        @if (item.Semester.Id == 2)
+                        {
+                            <tr>
+                                <td>@item.LessonName</td>
+                                <td>
+                                    <button class="btn-success btn-sm" type="submit">Ekle</button>
+                                    <input type="hidden" name="lessonAddCode" value="@item.LessonCode" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+            @if (Model.Student.Semester.Id == 3)
+            {
+
+
+                <table class="table table-bordered table-sm">
+                    <th>2.Sınıf Güz Dönemi</th>
+                    <th></th>
+                    @foreach (var item in Model.NonSelectedLesson)
+                    {
+                        @if (item.Semester.Id == 3)
+                        {
+                            <tr>
+                                <td>@item.LessonName</td>
+                                <td>
+                                    <button class="btn-success btn-sm" type="submit">Ekle</button>
+                                    <input type="hidden" name="lessonAddCode" value="@item.LessonCode" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+
+                <table class="table table-bordered table-sm">
+                    <th>1.Sınıf Güz Dönemi</th>
+                    <th></th>
+                    @foreach (var item in Model.NonSelectedLesson)
+                    {
+                        @if (item.Semester.Id == 1)
+                        {
+                            <tr>
+                                <td>@item.LessonName</td>
+
+                                @if (Model.GradesFailedLessons.Any(a => a.LessonCode == item.LessonCode))
+                                {
+
+                                    <td>
+                                        <button class="btn-success btn-sm" type="submit">Ekle</button>
+                                        <input type="hidden" name="lessonAddCode" value="@item.LessonCode" />
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+            @if (Model.Student.Semester.Id == 4)
+            {
+
+                <table class="table table-bordered table-sm">
+                    <th>2.Sınıf Bahar Dönemi</th>
+                    <th></th>
+                    @foreach (var item in Model.NonSelectedLesson)
+                    {
+                        @if (item.Semester.Id == 4)
+                        {
+                            <tr>
+                                <td>@item.LessonName</td>
+                                <td>
+                                    <button class="btn-success btn-sm" type="submit">Ekle</button>
+                                    <input type="hidden" name="lessonAddCode" value="@item.LessonCode" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+            @if (Model.Student.Semester.Id == 5)
+            {
+
+                <table class="table table-bordered table-sm">
+                    <th>3.Sınıf Güz Dönemi</th>
+                    <th></th>
+                    @foreach (var item in Model.NonSelectedLesson)
+                    {
+                        @if (item.Semester.Id == 5)
+                        {
+                            <tr>
+                                <td>@item.LessonName</td>
+                                <td>
+                                    <button class="btn-success btn-sm" type="submit">Ekle</button>
+                                    <input type="hidden" name="lessonAddCode" value="@item.LessonCode" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+            @if (Model.Student.Semester.Id == 6)
+            {
+
+                <table class="table table-bordered table-sm">
+                    <th>3.Sınıf Bahar Dönemi</th>
+                    <th></th>
+                    @foreach (var item in Model.NonSelectedLesson)
+                    {
+                        @if (item.Semester.Id == 6)
+                        {
+                            <tr>
+                                <td>@item.LessonName</td>
+                                <td>
+                                    <button class="btn-success btn-sm" type="submit">Ekle</button>
+                                    <input type="hidden" name="lessonAddCode" value="@item.LessonCode" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+            @if (Model.Student.Semester.Id == 7)
+            {
+
+                <table class="table table-bordered table-sm">
+                    <th>4.Sınıf Güz Dönemi</th>
+                    <th></th>
+                    @foreach (var item in Model.NonSelectedLesson)
+                    {
+                        @if (item.Semester.Id == 7)
+                        {
+                            <tr>
+                                <td>@item.LessonName</td>
+                                <td>
+                                    <button class="btn-success btn-sm" type="submit">Ekle</button>
+                                    <input type="hidden" name="lessonAddCode" value="@item.LessonCode" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+            @if (Model.Student.Semester.Id == 8)
+            {
+
+                <table class="table table-bordered table-sm">
+                    <th>4.Sınıf Bahar Dönemi</th>
+                    <th></th>
+                    @foreach (var item in Model.NonSelectedLesson)
+                    {
+                        @if (item.Semester.Id == 8)
+                        {
+                            <tr>
+                                <td>@item.LessonName</td>
+                                <td>
+                                    <button class="btn-success btn-sm" type="submit">Ekle</button>
+                                    <input type="hidden" name="lessonAddCode" value="@item.LessonCode" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+        </form>
+
+    </div>
+</div>

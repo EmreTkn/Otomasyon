@@ -1,0 +1,81 @@
+﻿
+@model LessonListModel
+
+@section Css
+{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
+}
+@section Scripts
+{
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+
+}
+@*Need the performance arrangement. Up there code blocks don't take one by one.Take all of them after doing pages. for performance need the sql query for pages*@
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="h3">GRADES</h1>
+        <hr>
+        <table id="myTable" class="table table-bordered mt-3 col-md-12">
+            <thead>
+                <tr>
+                    <td>Code</td>
+                    <td>Lesson Name</td>
+                    <td>AKTS</td>
+                    <td>Mid Term</td>
+                    <td>Final</td>
+                    <td>Büt</td>
+                    <td>Avg.</td>
+                    <td>Absenteeism</td>
+                    <td>Letter</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Lesson.Count > 0)
+                {
+                    @for (int i = 0; i < Model.Lesson.Count; i++)
+                    {
+
+
+                        //dersleri ve notları ayrı ayrı yerlerde tara sayıları esıt olmadıgında sorun cıkıyor..
+
+
+                <tr>
+                    <td>@Model.Lesson[i].LessonCode</td>
+                    <td>@Model.Lesson[i].LessonName</td>
+                    <td>@Model.Lesson[i].Akts</td>
+                    @if (Model.Grades.Count > i)
+                    {
+                        <td>@Model.Grades[i].MidTerm</td>
+                        <td>@Model.Grades[i].FinalExam</td>
+                        <td>@Model.Grades[i].MakeUpExam</td>
+                        <td>@Model.Grades[i].Average</td>
+                        <td>@Model.Grades[i].FailedAbsenteeism</td>
+                        <td>@Model.Grades[i].GradeLetter</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    }
+                </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>No Lesson</h3>
+                    </div>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

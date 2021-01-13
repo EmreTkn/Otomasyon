@@ -1,0 +1,9 @@
+C:\Users\emret\source\repos\NKUOtomayon\nkuotomasyon.business\bin\Debug\netstandard2.0\nkuotomasyon.business.deps.json
+C:\Users\emret\source\repos\NKUOtomayon\nkuotomasyon.business\bin\Debug\netstandard2.0\nkuotomasyon.business.dll
+C:\Users\emret\source\repos\NKUOtomayon\nkuotomasyon.business\bin\Debug\netstandard2.0\nkuotomasyon.business.pdb
+C:\Users\emret\source\repos\NKUOtomayon\nkuotomasyon.business\obj\Debug\netstandard2.0\nkuotomasyon.business.csprojAssemblyReference.cache
+C:\Users\emret\source\repos\NKUOtomayon\nkuotomasyon.business\obj\Debug\netstandard2.0\nkuotomasyon.business.AssemblyInfoInputs.cache
+C:\Users\emret\source\repos\NKUOtomayon\nkuotomasyon.business\obj\Debug\netstandard2.0\nkuotomasyon.business.AssemblyInfo.cs
+C:\Users\emret\source\repos\NKUOtomayon\nkuotomasyon.business\obj\Debug\netstandard2.0\nkuotomasyon.business.csproj.CoreCompileInputs.cache
+C:\Users\emret\source\repos\NKUOtomayon\nkuotomasyon.business\obj\Debug\netstandard2.0\nkuotomasyon.business.dll
+C:\Users\emret\source\repos\NKUOtomayon\nkuotomasyon.business\obj\Debug\netstandard2.0\nkuotomasyon.business.pdb
